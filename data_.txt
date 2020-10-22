@@ -1,0 +1,34 @@
+
+
+all_news_group = 
+{	
+	'naver' : [{
+					news_type : '많이 본 뉴스',
+					news_group : '뉴스 그룹 제목',
+					news_list : [{
+									subject : '뉴스 제목',
+									link : url,
+									writer : '언론사',
+									view_cnt : 조회수
+								},{...}]
+				},
+				{
+					news_type : '연령별 뉴스',
+					age_group : {
+									'10대' : {
+												news_list : [{
+																subject : '뉴스 제목',
+																link : url,
+																writer : '언론사',
+																view : 조회수
+															},{...}] 
+									},
+									'20대' : {
+										...
+									}
+				}],
+	'daum' : [
+		//////////
+	]
+},
+			
