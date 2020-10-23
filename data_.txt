@@ -3,7 +3,7 @@
 all_news_group = 
 {	
 	'naver' : [{
-					news_type : '많이 본 뉴스',
+					news_category : '많이 본 뉴스',
 					news_group : '뉴스 그룹 제목',
 					news_list : [{
 									subject : '뉴스 제목',
@@ -13,7 +13,7 @@ all_news_group =
 								},{...}]
 				},
 				{
-					news_type : '연령별 뉴스',
+					news_category : '연령별 뉴스',
 					age_group : {
 									'10대' : {
 												news_list : [{

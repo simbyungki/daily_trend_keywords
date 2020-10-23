@@ -1,7 +1,13 @@
 import requests
 import re
+import pandas as pd
 from datetime import datetime
 from bs4 import BeautifulSoup
+from konlpy.tag import Kkma
+
+# from django.shortcuts import render
+
+kkma = Kkma()
 
 def get_soup(url) :
 	headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36'}
@@ -9,7 +15,6 @@ def get_soup(url) :
 	res.raise_for_status()
 	soup = BeautifulSoup(res.text, 'lxml')
 	return soup
-
 
 def get_daum_age_news(today_date) :
 	url = f'https://news.daum.net/ranking/age?regDate={today_date}'
@@ -86,6 +91,18 @@ def get_daum_popular_news(today_date) :
 
 	return fin_news_data
 
+result_cnt = {}
+def get_keyword_list(sentence) :
+	noun_list = kkma.nouns(f'{sentence}')
+	for noun in noun_list :
+		try : 
+			result_cnt[noun] += 1
+		except : 
+			result_cnt[noun] = 1
+	return result_cnt
+	
+	
+
 def get_news_list() : 
 	today_date = datetime.today().strftime('%Y%m%d')	
 	daum_popular_news = get_daum_popular_news(today_date)
@@ -96,8 +113,30 @@ def get_news_list() :
 		'naver' : []
 	}
 
-	print(all_news_group.get('daum'))
+	for group in daum_age_news : 
+		for news in group.get('news_list') :
+			get_keyword_list(news.get('subject'))
+	
+	df = pd.Series(result_cnt)
+	df = df.sort_values(ascending=False)
+	print(df)
+
+	
+
+	return all_news_group
+
+
+# PAGE 
+# def news_list(request) : 
+# 	context = {
+# 		'result_group_list' : get_news_list(),
+# 		'today_date' : datetime.today().strftime('%Y년  %m월  %d일')
+		
+# 	}
+	
+# 	return render(request, 'mysite/news_list.html', context)
+
 
 if __name__ == '__main__' : 
+	# get_keyword_list('(자바설치, 환경변수 설정, 파이썬과 자바 버전 상이 등 오류가 많이 나는 편 ㅠㅠ)')
 	get_news_list()
-	

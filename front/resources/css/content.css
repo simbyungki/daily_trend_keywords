@@ -1,0 +1,64 @@
+@charset "utf-8";
+body.dark {background:#222;}
+.header {position:fixed; top:0; left:0; padding-top:24px; width:100%; height:120px; text-align:center; border-bottom:1px solid #ddd; background:#fff; box-sizing:border-box;}
+.header .service-name {font-size:40px; font-weight:800;}
+.header .service-name span {font-size:22px; font-weight:600;}
+.header .view-mode-changer {position:absolute; right:5%; top:20px;}
+.container {padding-top:120px;}
+.container .inner {position:relative; margin:0 auto; padding:10px 0; width:90%;}
+
+.item-list .inner {padding-top:20px;}
+.item-list .txt-guide {color:#fff;}
+.item-list ul {display:flex; flex-wrap: wrap;}
+.item-list ul li {position:relative; margin:20px 0 0 2%; padding:15px 15px 30px; width:23.5%; background:#fff; box-sizing:border-box;}
+.item-list ul li:first-child,
+.item-list ul li:nth-child(4n+1) {margin-left:0;}
+.item-list ul li a {display:block; width:100%; height:100%;}
+.item-list ul li .tags span {display:inline-block; padding:0 5px; height:22px; line-height:22px; color:#fff;}
+.item-list ul li .tags span + span {margin-left:3px;}
+.item-list ul li .tags span.portal {background:#608df9;}
+.item-list ul li .tags span.group {background:#444;}
+.item-list ul li .tags span.category {background:#ef685e;}
+.item-list ul li .subject {margin:10px 0 15px; line-height:26px; letter-spacing:-1px; font-size:20px; font-weight:600;}
+.item-list ul li a:hover .subject {text-decoration:underline;}
+.item-list ul li .infos {position:absolute; left:15px; bottom:15px;}
+.item-list ul li .infos span {position:relative; color:#777;}
+.item-list ul li .infos span + span {margin-left:13px;}
+.item-list ul li .infos span + span:after {display:block; content:"|"; position:absolute; left:-11px; top:0; color:#ddd;}
+
+.keyword-list {padding:25px 0; background:#efefef;}
+.keyword-list .title {width:180px; font-size:26px; font-weight:800;}
+.keyword-list .title .date {display:block; margin-bottom:5px; font-size:14px;}
+.keyword-list ol {display:flex; flex-wrap:wrap; margin-top:12px;}
+.keyword-list ol li {color:#555; font-size:18px; font-weight:600;}
+.keyword-list ol li:hover {text-decoration:underline;}
+.keyword-list ol li + li {margin-left:10px;}
+.keyword-list ol li:first-child {color:#d00; font-size:20px;}
+
+/***** 
+    responsive 
+                */
+/*****
+     1280 < w 
+                */
+@media screen and (max-width: 1280px) {
+    
+}                
+/*****
+     1024 > w 
+                */
+@media screen and (max-width: 1040px) {
+    
+}
+/*****
+     880 > w 
+                */
+@media screen and (max-width: 880px) {
+    
+}
+/*****
+     768 > w 
+                */
+@media screen and (max-width: 768px) {
+
+}
